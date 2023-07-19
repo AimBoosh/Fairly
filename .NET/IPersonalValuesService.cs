@@ -1,12 +1,12 @@
-﻿using Sabio.Models.Domain;
-using Sabio.Models.Domain.PersonalValueRankings;
-using Sabio.Models.Domain.PersonalValues;
-using Sabio.Models.Requests.PersonalValueRankings;
-using Sabio.Models.Requests.PersonalValues;
+﻿using  Models.Domain;
+using  Models.Domain.PersonalValueRankings;
+using  Models.Domain.PersonalValues;
+using  Models.Requests.PersonalValueRankings;
+using  Models.Requests.PersonalValues;
 using System.Collections.Generic;
 using System.Data;
 
-namespace Sabio.Services.Interfaces
+namespace  Services.Interfaces
 {
     public interface IPersonalValuesService
     {
