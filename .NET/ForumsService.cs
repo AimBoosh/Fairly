@@ -1,4 +1,4 @@
-﻿using Sabio.Data.Providers;
+﻿using  Data.Providers;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -6,23 +6,23 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Sabio.Models.Domain.Forums;
+using  Models.Domain.Forums;
 using System.Reflection;
 using Stripe.Terminal;
-using Sabio.Models.Domain.Blogs;
-using Sabio.Models;
-using Sabio.Models.Requests.Users;
-using Sabio.Data;
+using  Models.Domain.Blogs;
+using  Models;
+using  Models.Requests.Users;
+using  Data;
 using Stripe;
-using Sabio.Models.Requests.Forums;
-using Sabio.Services.Interfaces;
-using Sabio.Models.Domain.Threads;
-using Sabio.Models.Requests.Threads;
-using Sabio.Models.Domain.Users;
-using Sabio.Models.Domain;
+using  Models.Requests.Forums;
+using  Services.Interfaces;
+using  Models.Domain.Threads;
+using  Models.Requests.Threads;
+using  Models.Domain.Users;
+using  Models.Domain;
 using Newtonsoft.Json;
 
-namespace Sabio.Services
+namespace  Services
 {
     public class ForumsService : IForumsService
     {
