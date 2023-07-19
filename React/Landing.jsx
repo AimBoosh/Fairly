@@ -26,7 +26,7 @@ import newsletterService from "../../services/newsletterService";
 import NewsletterLandingCard from "./NewsletterLandingCard";
 import blogsService from "../../services/blogsService";
 import BlogLandingCard from "./BlogLandingCard";
-import debug from "sabio-debug";
+import debug from "debug";
 
 const _logger = debug.extend("Landing");
 
