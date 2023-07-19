@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import debug from "sabio-debug";
+import debug from "debug";
 import { Helmet } from "react-helmet-async";
 import { Row, Col } from "react-bootstrap";
 import { Notyf } from "notyf";
