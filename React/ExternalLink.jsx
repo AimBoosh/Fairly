@@ -5,7 +5,7 @@ import { Table } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { BsFillTrashFill } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
-import logger from "sabio-debug";
+import logger from "debug";
 import Swal from "sweetalert2";
 
 const ExternalLink = ({ externalLink, onDeleteClicked }) => {
