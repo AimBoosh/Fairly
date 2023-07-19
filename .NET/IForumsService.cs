@@ -1,12 +1,12 @@
-﻿using Sabio.Models;
-using Sabio.Models.Domain.Forums;
-using Sabio.Models.Domain.Threads;
-using Sabio.Models.Requests.Forums;
-using Sabio.Models.Requests.Threads;
+﻿using  Models;
+using  Models.Domain.Forums;
+using  Models.Domain.Threads;
+using  Models.Requests.Forums;
+using  Models.Requests.Threads;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Sabio.Services.Interfaces
+namespace  Services.Interfaces
 {
     public interface IForumsService 
     {
