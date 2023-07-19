@@ -2,20 +2,20 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Sabio.Models;
-using Sabio.Models.Domain.Forums;
-using Sabio.Models.Domain.Threads;
-using Sabio.Models.Requests.Forums;
-using Sabio.Models.Requests.Threads;
-using Sabio.Services;
-using Sabio.Services.Interfaces;
-using Sabio.Web.Controllers;
-using Sabio.Web.Models.Responses;
+using  Models;
+using  Models.Domain.Forums;
+using  Models.Domain.Threads;
+using  Models.Requests.Forums;
+using  Models.Requests.Threads;
+using  Services;
+using  Services.Interfaces;
+using  Web.Controllers;
+using  Web.Models.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace Sabio.Web.Api.Controllers
+namespace  Web.Api.Controllers
 {
     [Route("api/forums")]
     [ApiController]
