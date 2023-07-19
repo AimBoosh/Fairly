@@ -10,7 +10,7 @@ import CandidateJobFilter from "./CandidateJobFilter";
 import JobsLocationSearch from "../../../../components/jobsearch/JobLocationSearch";
 import PropTypes from "prop-types";
 import toastr from "toastr";
-import debug from "sabio-debug";
+import debug from "debug";
 import { Col, Row, Button, Form, InputGroup } from "react-bootstrap";
 
 const RADIUS_OPTIONS = [
