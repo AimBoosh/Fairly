@@ -6,9 +6,9 @@ import toastr from "toastr";
 import Swal from "sweetalert2";
 import personalValueSchema from "../../schemas/personalValueSchema";
 import RelatedPersonalValuesCard from "./RelatedPersonalValuesCard";
-import sabioDebug from "sabio-debug";
+import Debug from "debug";
 
-const _logger = sabioDebug.extend("RelatedPersonalValues");
+const _logger = Debug.extend("RelatedPersonalValues");
 
 function RelatedPersonalValues() {
   const [mappedPairings, setMappedPairings] = useState([]);
