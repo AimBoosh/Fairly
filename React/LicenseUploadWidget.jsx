@@ -3,7 +3,7 @@ import { useDropzone } from "react-dropzone";
 import { AiOutlineFile } from "react-icons/ai";
 import Swal from "sweetalert2";
 import file from "../../assets/img/icons/file.png";
-import debug from "sabio-debug";
+import debug from "debug";
 import styles from "./LicenseUploadWidget.module.css";
 import Spinner from "react-bootstrap/Spinner";
 import { uploadFiles } from "../../services/fileService";
