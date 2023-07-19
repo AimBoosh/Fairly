@@ -1,8 +1,8 @@
-using Sabio.Models;
+using  Models;
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Sabio.Models.Requests.Licenses
+namespace  Models.Requests.Licenses
 {
     public class LicenseUpdateRequest : LicenseAddRequest, IModelIdentifier
     {
