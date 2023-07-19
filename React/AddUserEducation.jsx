@@ -15,7 +15,7 @@ import userEducationService from "../../../services/userEducationService";
 import userEducationFormSchema from "../../../schemas/userEducationFormSchema";
 import "./user-education.css";
 import toastr from "toastr";
-import debug from "sabio-debug";
+import debug from "debug";
 import CreatableSelect from "react-select/creatable";
 
 const _logger = debug.extend("EducationLevel");
