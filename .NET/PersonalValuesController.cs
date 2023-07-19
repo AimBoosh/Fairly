@@ -3,20 +3,20 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Build.Framework;
 using Microsoft.Extensions.Logging;
-using Sabio.Models.Domain;
-using Sabio.Models.Domain.PersonalValueRankings;
-using Sabio.Models.Domain.PersonalValues;
-using Sabio.Models.Requests.PersonalValueRankings;
-using Sabio.Models.Requests.PersonalValues;
-using Sabio.Services;
-using Sabio.Services.Interfaces;
-using Sabio.Web.Controllers;
-using Sabio.Web.Models.Responses;
+using  Models.Domain;
+using  Models.Domain.PersonalValueRankings;
+using  Models.Domain.PersonalValues;
+using  Models.Requests.PersonalValueRankings;
+using  Models.Requests.PersonalValues;
+using  Services;
+using  Services.Interfaces;
+using  Web.Controllers;
+using  Web.Models.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace Sabio.Web.Api.Controllers
+namespace  Web.Api.Controllers
 {
     [Route("api/personalvalues")]
     [ApiController]
