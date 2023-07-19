@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./jobsearch.css";
-import debug from "sabio-debug";
+import debug from "debug";
 
 const _logger = debug.extend("JobCard");
 
