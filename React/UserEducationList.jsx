@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import debug from "sabio-debug";
+import debug from "debug";
 import {
   Container,
   Row,
