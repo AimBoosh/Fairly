@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import * as licenseService from "../../services/licenseService";
 import { BiEdit, BiFileBlank, BiTrash } from "react-icons/bi";
 import LicenseModal from "./LicenseModal";
-import debug from "sabio-debug";
+import debug from "debug";
 const _logger = debug.extend("LicensesList");
 
 export default function LicenseCard(props) {
