@@ -1,12 +1,12 @@
-﻿using Sabio.Data;
-using Sabio.Data.Extensions;
-using Sabio.Data.Providers;
-using Sabio.Models.Domain;
-using Sabio.Models.Domain.PersonalValueRankings;
-using Sabio.Models.Domain.PersonalValues;
-using Sabio.Models.Requests.PersonalValueRankings;
-using Sabio.Models.Requests.PersonalValues;
-using Sabio.Services.Interfaces;
+﻿using  Data;
+using  Data.Extensions;
+using  Data.Providers;
+using  Models.Domain;
+using  Models.Domain.PersonalValueRankings;
+using  Models.Domain.PersonalValues;
+using  Models.Requests.PersonalValueRankings;
+using  Models.Requests.PersonalValues;
+using  Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,7 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sabio.Services
+namespace  Services
 {
     public class PersonalValuesService : IPersonalValuesService
     {
