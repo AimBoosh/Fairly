@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import jobLinksService from "../../services/jobLinks";
 import { Card, Table } from "react-bootstrap";
-import debug from "sabio-debug";
+import debug from "debug";
 import Pagination from "rc-pagination";
 import "rc-pagination/assets/index.css";
 import locale from "rc-pagination/lib/locale/en_US";
