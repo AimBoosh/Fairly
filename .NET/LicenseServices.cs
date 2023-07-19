@@ -1,14 +1,14 @@
-﻿using Sabio.Data;
-using Sabio.Data.Providers;
-using Sabio.Models;
-using Sabio.Services;
-using Sabio.Services.Interfaces;
+﻿using  Data;
+using  Data.Providers;
+using  Models;
+using  Services;
+using  Services.Interfaces;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using Sabio.Models.Requests.Licenses;
-using Sabio.Models.Domain;
-using Sabio.Models.Domain.Files;
+using  Models.Requests.Licenses;
+using  Models.Domain;
+using  Models.Domain.Files;
 using System;
 
 public class LicenseServices : ILicenseServices
