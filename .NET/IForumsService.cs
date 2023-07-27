@@ -1,14 +1,4 @@
-﻿using  Models;
-using  Models.Domain.Forums;
-using  Models.Domain.Threads;
-using  Models.Requests.Forums;
-using  Models.Requests.Threads;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace  Services.Interfaces
-{
-    public interface IForumsService 
+public interface IForumsService 
     {
         List<ForumMain> SelectAllForumByCategory();
         int CreateForum(ForumAddRequest model);
@@ -26,4 +16,3 @@ namespace  Services.Interfaces
         void UpdateThread(ThreadUpdateRequest model);
         List<Thread> GetNestedThreads(List<Thread> threads);
     }
-}
