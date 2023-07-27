@@ -1,16 +1,3 @@
-﻿using  Data;
-using  Data.Providers;
-using  Models;
-using  Services;
-using  Services.Interfaces;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using  Models.Requests.Licenses;
-using  Models.Domain;
-using  Models.Domain.Files;
-using System;
-
 public class LicenseServices : ILicenseServices
 {
 	IDataProvider _data = null;
@@ -137,9 +124,6 @@ public class LicenseServices : ILicenseServices
             returnParameters: null);
     }
 
-
-
-
     private static void AddCommonParams(LicenseAddRequest addRequest, SqlParameterCollection collection)
 	{
         collection.AddWithValue("@LicenseStateId", addRequest.LicenseStateId);
@@ -149,7 +133,6 @@ public class LicenseServices : ILicenseServices
 		collection.AddWithValue("@IsActive", addRequest.IsActive);
 		collection.AddWithValue("@FileId", addRequest.FileId);
 	}
-
 
     private License MapSingleLicense(IDataReader reader, ref int index)
 	{
