@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import debug from "sabio-debug";
 import Swal from "sweetalert2";
 import toastr from "toastr";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
@@ -20,8 +19,6 @@ import * as lookUpService from "../../services/lookUpService";
 import * as licenseService from "../../services/licenseService";
 import "../skills/skills.css";
 import LicenseUploadWidget from "./LicenseUploadWidget";
-
-const _logger = debug.extend("LicensesForm");
 
 function LicenseForm() {
   const { id } = useParams();
@@ -89,12 +86,10 @@ function LicenseForm() {
   }
 
   function lookUpError(error) {
-    _logger(error);
     toastr.error("Something went wrong. Please try again.");
   }
 
   const handleSubmit = (values) => {
-    _logger("location: ", location.state);
     if (!id) {
       licenseService
         .addLicense(values)
@@ -117,7 +112,7 @@ function LicenseForm() {
   }
 
   function addLicenseErr(err) {
-    _logger("Add License error:", err);
+    console.log("Add License error:", err);
     Swal.fire({
       title: "License was not added!",
       icon: "error",
@@ -126,7 +121,7 @@ function LicenseForm() {
   }
 
   function updateLicenseSuccess(response) {
-    _logger(response);
+    console.log(response);
     Swal.fire({
       title: "Update was success!",
       icon: "success",
@@ -135,7 +130,7 @@ function LicenseForm() {
   }
 
   function updateLicenseErr(err) {
-    _logger("Update License error:", err);
+    console.log("Update License error:", err);
     Swal.fire({
       title: "License was not updated!",
       icon: "error",
@@ -144,7 +139,6 @@ function LicenseForm() {
   }
 
   function deleteSuccess() {
-    _logger("Delete successful");
     Swal.fire({
       title: "License has been deleted",
       icon: "success",
@@ -154,7 +148,7 @@ function LicenseForm() {
 
   function deleteError(err) {
     toastr.error("Something went wrong. Please try again.");
-    _logger("Delete Error response: ", err);
+    console.log("Delete Error response: ", err);
   }
 
   function tryDeleteLicense() {
