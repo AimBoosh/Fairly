@@ -1,23 +1,3 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Build.Framework;
-using Microsoft.Extensions.Logging;
-using  Models.Domain;
-using  Models.Domain.PersonalValueRankings;
-using  Models.Domain.PersonalValues;
-using  Models.Requests.PersonalValueRankings;
-using  Models.Requests.PersonalValues;
-using  Services;
-using  Services.Interfaces;
-using  Web.Controllers;
-using  Web.Models.Responses;
-using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-
-namespace  Web.Api.Controllers
-{
     [Route("api/personalvalues")]
     [ApiController]
     public class PersonalValuesController : BaseApiController
@@ -263,4 +243,3 @@ namespace  Web.Api.Controllers
 
         #endregion
     }
-}
