@@ -1,4 +1,3 @@
-import debug from "debug";
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -11,7 +10,6 @@ import "rc-pagination/assets/index.css";
 import "./externalLinkStyle.css";
 
 export default function ExternalLinksForm(props) {
-  const _logger = debug.extend("ExternalLinksForm");
   const navigate = useNavigate();
   const { state } = useLocation();
 
@@ -60,7 +58,6 @@ export default function ExternalLinksForm(props) {
   };
 
   useEffect(() => {
-    _logger("location state useEffect firing", state);
     if (state?.type === "LINK_EDIT" && state.payload) {
       setExternalLinkFormData((prevState) => {
         const newSt = { ...prevState };
@@ -77,16 +74,13 @@ export default function ExternalLinksForm(props) {
 
   const onHandleSubmit = (value) => {
     value.entityTypeId = parseInt(value.entityTypeId, 10);
-    _logger(value);
 
     if (value.entityTypeId === 2) {
       value.entityId = props.currentUser.id;
-      _logger(props);
     }
 
     if (value.entityTypeId === 4) {
       value.entityId = props.currentUser.orgId;
-      _logger(props);
     }
 
     if (state?.type === "LINK_EDIT" && state.payload) {
@@ -94,19 +88,15 @@ export default function ExternalLinksForm(props) {
         .updateExternalLink(value)
         .then(onUpdateSuccess)
         .catch(onUpdateError);
-      _logger("Updated", value);
     } else {
       externalLinkService
         .addExternalLink(value)
         .then(onAddSuccess)
         .catch(onAddError);
-      _logger("Added", value);
     }
   };
 
   const onUpdateSuccess = (response) => {
-    _logger("onUpdateSuccess", response);
-
     Swal.fire({
       icon: "success",
       title: "Link updated!",
@@ -116,8 +106,6 @@ export default function ExternalLinksForm(props) {
   };
 
   const onUpdateError = (err) => {
-    _logger("onUpdateError", err);
-
     Swal.fire({
       icon: "error",
       title: "Link could not be updated.",
@@ -126,8 +114,6 @@ export default function ExternalLinksForm(props) {
   };
 
   const onAddSuccess = (response) => {
-    _logger("onAddSuccess", response);
-
     Swal.fire({
       icon: "success",
       title: "Link added!",
@@ -138,8 +124,6 @@ export default function ExternalLinksForm(props) {
   };
 
   const onAddError = (err) => {
-    _logger("onAddError", err);
-
     Swal.fire({
       icon: "error",
       title: "Link could not be added.",
@@ -154,7 +138,6 @@ export default function ExternalLinksForm(props) {
   }, []);
 
   const onGetTypesSuccess = (response) => {
-    _logger(response, "lookup success");
     setPageData((prevState) => {
       const newSt = { ...prevState };
       newSt.urlTypes = response.item.urlTypes.map(mapLink);
@@ -166,8 +149,6 @@ export default function ExternalLinksForm(props) {
   };
 
   const onGetTypesError = (err) => {
-    _logger(err, "lookUp error");
-
     Swal.fire({
       icon: "error",
       title: "Could not get Type.",
@@ -176,8 +157,6 @@ export default function ExternalLinksForm(props) {
   };
 
   const onGoBack = () => {
-    _logger("go to users list");
-
     navigate("/externallinks");
   };
 
