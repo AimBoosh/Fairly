@@ -10,7 +10,6 @@ import CandidateJobFilter from "./CandidateJobFilter";
 import JobsLocationSearch from "../../../../components/jobsearch/JobLocationSearch";
 import PropTypes from "prop-types";
 import toastr from "toastr";
-import debug from "debug";
 import { Col, Row, Button, Form, InputGroup } from "react-bootstrap";
 
 const RADIUS_OPTIONS = [
@@ -31,8 +30,6 @@ const defaultPage = {
   lat: "",
   long: "",
 };
-
-const _logger = debug.extend("CandidateJobSearch");
 
 function CandidateJobSearch({ currentUser }) {
   const [jobsPageData, setJobsPageData] = useState({
@@ -58,7 +55,6 @@ function CandidateJobSearch({ currentUser }) {
 
   useEffect(() => {
     if (jobsPageData.radius && jobsPageData.lat && jobsPageData.long) {
-      _logger("useEffect for location/radius query");
       jobService
         .getJobsByLocation(
           jobsPageData.pageIndex,
@@ -70,7 +66,6 @@ function CandidateJobSearch({ currentUser }) {
         .then(getJobsSuccess)
         .catch(getJobsError);
     } else if (jobsPageData.filterByJobType) {
-      _logger("useEffect filterByType running");
       jobService
         .getJobsSearch(
           jobsPageData.pageIndex,
@@ -80,7 +75,6 @@ function CandidateJobSearch({ currentUser }) {
         .then(getJobsSuccess)
         .catch(getJobsError);
     } else if (jobsPageData.query) {
-      _logger("useEffect jobquery with keywords running");
       jobService
         .getJobsSearch(
           jobsPageData.pageIndex,
@@ -90,7 +84,6 @@ function CandidateJobSearch({ currentUser }) {
         .then(getJobsSuccess)
         .catch(getJobsError);
     } else {
-      _logger("useEffect selectAll running");
       jobService
         .getJobsPaginated(jobsPageData.pageIndex, jobsPageData.pageSize)
         .then(getJobsSuccess)
@@ -103,7 +96,6 @@ function CandidateJobSearch({ currentUser }) {
   ]);
 
   const getJobsSuccess = (data) => {
-    _logger(data);
     let arrOfJobs = data.item.pagedItems;
 
     setJobsPageData((prevState) => {
@@ -117,7 +109,6 @@ function CandidateJobSearch({ currentUser }) {
   };
 
   const getJobsError = (err) => {
-    _logger(err);
     toastr.error(
       "Sorry! We didn’t find any jobs matching your criteria or search area. Please modify your search and try again."
     );
@@ -135,8 +126,6 @@ function CandidateJobSearch({ currentUser }) {
   };
 
   const onApplyRequest = (jobId) => {
-    _logger(currentUser, jobId);
-
     if (currentUser.isLoggedIn === true) {
       navigate(`/jobs/${jobId}`);
     } else {
@@ -148,15 +137,7 @@ function CandidateJobSearch({ currentUser }) {
 
   const onJobQuery = () => {
     const initialIndex = 0;
-    _logger(
-      "onJobQuery clicked",
-      { stateLat: jobsPageData.lat },
-      { stateLong: jobsPageData.long },
-      { stateRadius: jobsPageData.radius },
-      { pageIndex: jobsPageData.pageIndex }
-    );
     if (jobsPageData.lat && jobsPageData.long && jobsPageData.radius > 0) {
-      _logger("searching by location");
       jobService
         .getJobsByLocation(
           initialIndex,
@@ -170,7 +151,6 @@ function CandidateJobSearch({ currentUser }) {
     } else if (jobsPageData.query === "") {
       onReset();
     } else {
-      _logger("Search Query running");
       jobService
         .getJobsSearch(initialIndex, jobsPageData.pageSize, jobsPageData.query)
         .then((response) => handleSuccess(response))
@@ -179,7 +159,6 @@ function CandidateJobSearch({ currentUser }) {
   };
 
   const onReset = () => {
-    _logger("default search, page reset");
     setJobsPageData((prevState) => ({
       ...prevState,
       ...defaultPage,
@@ -194,7 +173,6 @@ function CandidateJobSearch({ currentUser }) {
   };
 
   const handleSuccess = (data) => {
-    _logger(data, jobsPageData);
     let resetPageIndex = 0;
     let resetRadius = 0;
     let jobQuery = data.item.pagedItems;
@@ -217,7 +195,6 @@ function CandidateJobSearch({ currentUser }) {
   };
 
   const filterByJobType = (value) => {
-    _logger(value);
     setJobsPageData((prevState) => ({
       ...prevState,
       ...defaultPage,
@@ -227,7 +204,6 @@ function CandidateJobSearch({ currentUser }) {
 
   const onRadiusChange = (event) => {
     const selectValue = event.target.value;
-    _logger(selectValue);
     setJobsPageData((prevState) => {
       const selectRadiusValue = {
         ...prevState,
@@ -242,7 +218,6 @@ function CandidateJobSearch({ currentUser }) {
     setJobsPageData((prevData) => {
       const pageData = { ...prevData };
       pageData.pageIndex = page - 1;
-      _logger(jobsPageData.pageIndex);
       return pageData;
     });
   };
@@ -251,7 +226,6 @@ function CandidateJobSearch({ currentUser }) {
     const target = event.target;
     const inputValue = target.value;
     const nameOfField = target.name;
-    _logger(inputValue);
     setJobsPageData((prevState) => {
       const searchQueryData = {
         ...prevState,
