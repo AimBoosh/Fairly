@@ -1,14 +1,4 @@
-﻿USE [Fairly]
-GO
-/****** Object:  StoredProcedure [dbo].[RelatedPersonalValues_SelectAll]    Script Date: 6/9/2023 12:22:20 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-
-
-	CREATE PROC [dbo].[RelatedPersonalValues_SelectAll]
-										
+	CREATE PROC [dbo].[RelatedPersonalValues_SelectAll]										
 
 	AS
 
@@ -20,17 +10,14 @@ EXECUTE [dbo].[RelatedPersonalValues_SelectAll]
 
 	BEGIN
 
-			SELECT RPV.[PersonalValueA] AS IdA
-					,PVA.Name
-					,RPV.[PersonalValueB] AS IdB
-					,PVB.Name
+	SELECT RPV.[PersonalValueA] AS IdA
+			,PVA.Name
+			,RPV.[PersonalValueB] AS IdB
+			,PVB.Name
 
-			FROM [dbo].[RelatedPersonalValues] AS RPV 
-			INNER JOIN [dbo].[PersonalValues] AS PVA ON RPV.PersonalValueA = PVA.Id
-			INNER JOIN [dbo].[PersonalValues] AS PVB ON RPV.PersonalValueB = PVB.Id
-			ORDER BY PVA.Name, PVB.Name
-   
+	FROM [dbo].[RelatedPersonalValues] AS RPV 
+	INNER JOIN [dbo].[PersonalValues] AS PVA ON RPV.PersonalValueA = PVA.Id
+	INNER JOIN [dbo].[PersonalValues] AS PVB ON RPV.PersonalValueB = PVB.Id
+	ORDER BY PVA.Name, PVB.Name
+
 	END
-
-
-GO
