@@ -1,15 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./jobsearch.css";
-import debug from "debug";
-
-const _logger = debug.extend("JobCard");
 
 function JobCard(props) {
   const { job, selectedCardId, setCardIdState, currentUser } = props;
-
-  _logger(props, selectedCardId);
-
   const calcDaysAgo = (dateCreated) => {
     let oneDay = 1000 * 60 * 60 * 24;
     let today = new Date();
@@ -22,7 +16,6 @@ function JobCard(props) {
 
   const applyClicked = () => {
     let jobId = job.id;
-    _logger(currentUser, "currentUser from JobCard");
     props.onClickApply(jobId);
   };
 
@@ -30,7 +23,6 @@ function JobCard(props) {
     props.passCardInfo(props);
     setCardIdState(() => {
       let updateCardId = job.id;
-      _logger(updateCardId);
       return updateCardId;
     });
   };
