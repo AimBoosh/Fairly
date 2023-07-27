@@ -1,12 +1,10 @@
 import { lazy } from "react";
-const PageNotFound = lazy(() => import("../components/errors/Error404"));
 
+const PageNotFound = lazy(() => import("../components/errors/Error404"));
 const RelatedPersonalValues = lazy(() =>
   import("../components/relatedpersonalvalues/RelatedPersonalValues")
 );
-
 const Jobs = lazy(() => import("../components/jobs/Jobs"));
-
 const UsersEducationList = lazy(() =>
   import("../components/testlist/UserEducationList")
 );
@@ -16,14 +14,9 @@ const UserDemographics = lazy(() =>
 const EducationRequirements = lazy(() =>
   import("../components/education/EducationRequirements")
 );
-
 const JobLinks = lazy(() => import("../components/joblinks/JobLinks"));
-
-// dashboard
-
 const LicensesList = lazy(() => import("../components/licenses/LicensesList"));
 const LicenseForm = lazy(() => import("../components/licenses/LicenseForm"));
-
 const ExternalLinkForm = lazy(() =>
   import("../components/externallinks/ExternalLinkForm")
 );
@@ -81,7 +74,6 @@ const dashboardRoutes = [
   },
 ];
 
-
 const personalValuesRankingRoutes = [
   {
     path: "/dashboard/personalvalues/ranking",
@@ -108,7 +100,6 @@ const personalValuesRankingRoutes = [
   },
 ];
 
-
 const files = [
   {
     path: "/dashboard/files",
@@ -128,8 +119,6 @@ const files = [
     roles: ["SysAdmin", "OrgAdmin", "HiringAdmin", "Candidate"],
   },
 ];
-
-
 
 const licenseRoutes = [
   {
@@ -164,7 +153,6 @@ const licenseRoutes = [
     ],
   },
 ];
-
 
 const forumsRoutes = [
   {
