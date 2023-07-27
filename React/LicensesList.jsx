@@ -9,8 +9,6 @@ import locale from "rc-pagination/lib/locale/en_US";
 import { Card, Container, Table, Row } from "react-bootstrap";
 import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
-import debug from "sabio-debug";
-const _logger = debug.extend("LicensesList");
 import PropTypes from "prop-types";
 
 //#region LICENSES CORE
@@ -23,8 +21,6 @@ function LicensesList({ currentUser }) {
     pageSize: 6,
     userRoles: [],
   });
-
-  _logger("PAGEDATA", pageData);
 
   const navigate = useNavigate();
   const addLicenseButton = () => {
@@ -52,7 +48,6 @@ function LicensesList({ currentUser }) {
 
   function onGetLicensesSuccess(response) {
     let responseArray = response.item.pagedItems;
-    _logger("licensesArraySuccess: ", responseArray);
     setPageData((prevState) => {
       let newPageData = { ...prevState };
       newPageData.totalCount = response.item.totalCount;
