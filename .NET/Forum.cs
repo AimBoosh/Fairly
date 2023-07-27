@@ -1,11 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Models.Domain.Forums
-{
     public class Forum
     {
         public int Id { get; set; }
@@ -27,6 +19,3 @@ namespace Models.Domain.Forums
         public List<Forum> Forums { get; set;}
 
     }
-
-
-}
