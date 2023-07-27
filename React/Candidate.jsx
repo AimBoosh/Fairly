@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import debug from "debug";
 import { Helmet } from "react-helmet-async";
 import { Row, Col } from "react-bootstrap";
 import { Notyf } from "notyf";
@@ -9,10 +8,8 @@ import CandidateJobSearch from "./CandidateJobSearch";
 import CandidateAppointmentList from "./CandidateAppointmentList";
 import userService from "../../../../services/userService";
 import "./candidate.css";
-// import CandidateChat from "./CandidateChat";
 import UserDemographicsCard from "../../../../components/users/UserDemographicsCard";
 
-const _logger = debug.extend("Candidate");
 const notyf = new Notyf({ position: { y: "top" } });
 
 function Candidate(props) {
@@ -32,7 +29,6 @@ function Candidate(props) {
   };
 
   const onGetCurrentUserError = (error) => {
-    _logger(error);
     notyf.error("Failed to retrieve user data");
   };
 
