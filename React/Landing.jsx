@@ -26,12 +26,9 @@ import newsletterService from "../../services/newsletterService";
 import NewsletterLandingCard from "./NewsletterLandingCard";
 import blogsService from "../../services/blogsService";
 import BlogLandingCard from "./BlogLandingCard";
-import debug from "debug";
-
-const _logger = debug.extend("Landing");
 
 const LandingIntro = (props) => {
-  _logger("LandingIntro props", props);
+  console.log("LandingIntro props", props);
 
   const dashboardBtn = (user) => {
     if (user.currentUser.roles.includes("SysAdmin")) {
@@ -395,7 +392,6 @@ const Blogs = () => {
     blogsArray: [],
     blogComponents: [],
   });
-  false && _logger(blogs);
 
   useEffect(() => {
     blogsService.getBlogs(0, 3).then(onGetBlogsSuccess).catch(onGetBlogsError);
@@ -413,7 +409,7 @@ const Blogs = () => {
   };
 
   const onGetBlogsError = (error) => {
-    _logger(error);
+    console.log(error);
   };
 
   const mapBlogs = (blog) => {
@@ -469,7 +465,7 @@ const Newsletters = () => {
   };
 
   const onGetNewslettersError = (error) => {
-    _logger(error);
+    console.log(error);
   };
 
   const mapNewsletters = (newsletter) => {
@@ -509,7 +505,7 @@ const Newsletters = () => {
 };
 
 const Landing = (props) => {
-  _logger("Landing props", props);
+  console.log("Landing props", props);
   const [showModal, setShowModal] = useState(true);
 
   useEffect(() => {
