@@ -1,22 +1,3 @@
-﻿using  Data;
-using  Data.Extensions;
-using  Data.Providers;
-using  Models.Domain;
-using  Models.Domain.PersonalValueRankings;
-using  Models.Domain.PersonalValues;
-using  Models.Requests.PersonalValueRankings;
-using  Models.Requests.PersonalValues;
-using  Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace  Services
-{
     public class PersonalValuesService : IPersonalValuesService
     {
         private ILookUpService _lookUpService = null;
@@ -238,4 +219,3 @@ namespace  Services
 
         #endregion
     }
-}
