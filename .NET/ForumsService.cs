@@ -1,30 +1,4 @@
-﻿using  Data.Providers;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using  Models.Domain.Forums;
-using System.Reflection;
-using Stripe.Terminal;
-using  Models.Domain.Blogs;
-using  Models;
-using  Models.Requests.Users;
-using  Data;
-using Stripe;
-using  Models.Requests.Forums;
-using  Services.Interfaces;
-using  Models.Domain.Threads;
-using  Models.Requests.Threads;
-using  Models.Domain.Users;
-using  Models.Domain;
-using Newtonsoft.Json;
-
-namespace  Services
-{
-    public class ForumsService : IForumsService
+public class ForumsService : IForumsService
     {
         private IAuthenticationService<int> _authenticationService;
         private IDataProvider _dataProvider;
@@ -43,6 +17,7 @@ namespace  Services
         }
 
         #region Forums
+        
         public List<ForumMain> SelectAllForumByCategory()
         {
             string procName = "[dbo].[Forums_SelectAllByCategory]";
@@ -63,6 +38,7 @@ namespace  Services
                 );
             return list;
         }
+        
         public Paged<Forum> GetAllForums(int pageIndex, int pageSize)
         {
             string procName = "[dbo].[Forums_SelectAll]";
@@ -408,7 +384,6 @@ namespace  Services
                         topLevelThreads[reply.ParentThreadId].Replies.Add(reply);
                     }
                 }
-
             }
 
             nestedThreads = topLevelThreads.Select(item => item.Value).ToList();
@@ -502,7 +477,6 @@ namespace  Services
 
         private static void AddForumCommonParams(ForumAddRequest model, SqlParameterCollection paramCol)
         {
-         
             paramCol.AddWithValue("@Name", model.Name);
             paramCol.AddWithValue("@Description", model.Description);
             paramCol.AddWithValue("@ForumCategoryId", model.ForumCategoryId);
@@ -511,4 +485,3 @@ namespace  Services
        
         }
     }
-}
