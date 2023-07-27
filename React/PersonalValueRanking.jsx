@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import debug from "sabio-debug";
 import Swal from "sweetalert2";
 import * as lookUpService from "../../services/lookUpService";
 import personalValuesService from "../../services/personalValuesService";
@@ -13,8 +12,6 @@ import {
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-
-const _logger = debug.extend("PersonalValueRanking");
 
 function PersonalValueRanking() {
   const [formData] = useState({
@@ -78,7 +75,7 @@ function PersonalValueRanking() {
 
   const onGetPVsError = (response) => {
     toastr.error("There was an error. Please refresh your page.");
-    _logger("onGetPVsError", response);
+    console.log("onGetPVsError", response);
   };
 
   useEffect(() => {
@@ -91,7 +88,6 @@ function PersonalValueRanking() {
 
   const onGetByIdSuccess = (response) => {
     let rankingResult = response.items;
-    _logger("onGetByIdSuccess", response);
     setPageData((prevSt) => {
       let newSt = { ...prevSt };
       newSt.rankingResult = rankingResult;
@@ -109,7 +105,6 @@ function PersonalValueRanking() {
       newSt.rankingResultComponent = [];
       return newSt;
     });
-    _logger("onGetByIdError", response);
   };
 
   const cardMapper = (aPersonalValue) => {
@@ -154,12 +149,11 @@ function PersonalValueRanking() {
 
   const onUpdateSuccess = (response) => {
     toastr.success("New sort order saved.");
-    _logger("onUpdateSuccess", response);
+    console.log("onUpdateSuccess", response);
   };
 
   const onUpdateError = (error) => {
     toastr.error("There was an error. Please refresh your page.");
-    _logger("onUpdateError", error);
   };
 
   const onRemoveClick = (id) => {
@@ -207,12 +201,10 @@ function PersonalValueRanking() {
 
   const onDeleteError = (error) => {
     toastr.error("Delete failed. Please try again.");
-    _logger("onDeleteError", error);
   };
 
   const handleSubmitBtn = (inputs, { resetForm }) => {
     const newInputs = { ...inputs, sort: pageData.nextSort };
-    _logger("Check sort value: ", newInputs);
     personalValuesService
       .create(newInputs)
       .then(onCreateSuccess)
@@ -230,7 +222,7 @@ function PersonalValueRanking() {
   };
 
   const onCreateError = (error) => {
-    _logger("onCreateError", error);
+    console.log("onCreateError", error);
     Swal.fire({
       icon: "warning",
       title: "Sorry, please try again.",
