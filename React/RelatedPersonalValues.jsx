@@ -6,9 +6,6 @@ import toastr from "toastr";
 import Swal from "sweetalert2";
 import personalValueSchema from "../../schemas/personalValueSchema";
 import RelatedPersonalValuesCard from "./RelatedPersonalValuesCard";
-import Debug from "debug";
-
-const _logger = Debug.extend("RelatedPersonalValues");
 
 function RelatedPersonalValues() {
   const [mappedPairings, setMappedPairings] = useState([]);
@@ -41,7 +38,7 @@ function RelatedPersonalValues() {
   });
 
   const onGetTypesError = (err) => {
-    _logger("onGetTypesError", err);
+    console.log("onGetTypesError", err);
   };
 
   const onGetValuesSuccess = useCallback((response) => {
@@ -55,7 +52,7 @@ function RelatedPersonalValues() {
 
   const onGetValuesError = (err) => {
     toastr.error("There was an error. Please refresh your page");
-    _logger("onGetValuesError", err);
+    console.log("onGetValuesError", err);
   };
 
   const initialValues = {
@@ -105,7 +102,7 @@ function RelatedPersonalValues() {
 
   const onSubmitError = (err) => {
     toastr.error("There was an error. Please try again!");
-    _logger("onSubmitError", err);
+    console.log("onSubmitError", err);
   };
 
   const handleDeleteValues = (personalValue) => {
@@ -176,7 +173,7 @@ function RelatedPersonalValues() {
 
   const onHandleDeleteError = (err) => {
     toastr.error("Deleting values unsuccessful, Please try again!");
-    _logger("onHandleDeleteError", err);
+    console.log("onHandleDeleteError", err);
   };
 
   const swalWithBootstrapButtons = Swal.mixin({
