@@ -3,7 +3,6 @@ import { useDropzone } from "react-dropzone";
 import { AiOutlineFile } from "react-icons/ai";
 import Swal from "sweetalert2";
 import file from "../../assets/img/icons/file.png";
-import debug from "debug";
 import styles from "./LicenseUploadWidget.module.css";
 import Spinner from "react-bootstrap/Spinner";
 import { uploadFiles } from "../../services/fileService";
@@ -31,15 +30,14 @@ const LicenseUploadWidget = ({
   const [files, setFiles] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
-  const _logger = debug.extend("Files");
-
+  
   const acceptedFiles = {
     image: new Set(["png", "jpeg", "jpg", "webp", "svg"]),
     nonImage: new Set(["pdf"]),
   };
+  
   const onSuccess = (res) => {
     if (res?.items?.length > 0) {
-      _logger("file upload response", res.items);
       isAlertPopUp &&
         Swal.fire("Success!", "You files are now in the cloud!", "success");
       setIsUploading(false);
@@ -50,7 +48,7 @@ const LicenseUploadWidget = ({
   };
 
   const onFailed = (e) => {
-    _logger("onFailed", e.response);
+    console.log("onFailed", e.response);
     setIsUploading(false);
     isAlertPopUp &&
       Swal.fire(
@@ -66,7 +64,6 @@ const LicenseUploadWidget = ({
 
     const form = new FormData();
     fileInput.forEach((item) => {
-      _logger("each", item);
       form.append("files", item);
     });
 
