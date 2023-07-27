@@ -15,10 +15,7 @@ import userEducationService from "../../../services/userEducationService";
 import userEducationFormSchema from "../../../schemas/userEducationFormSchema";
 import "./user-education.css";
 import toastr from "toastr";
-import debug from "debug";
 import CreatableSelect from "react-select/creatable";
-
-const _logger = debug.extend("EducationLevel");
 
 function AddUserEducation(props) {
   const initialValues = {
@@ -52,7 +49,6 @@ function AddUserEducation(props) {
     const allDegrees = response.item.degrees;
     const allEducationLvls = response.item.educationLevels;
     if (storedDegrees.length !== allDegrees.length) {
-      _logger("These are all the Degrees:", allDegrees);
       setStoredDegrees((prevState) => {
         let updatedDegrees = [...prevState];
         updatedDegrees = allDegrees;
@@ -60,7 +56,6 @@ function AddUserEducation(props) {
       });
     }
     if (educationLevels.length !== allEducationLvls.length) {
-      _logger("These are all the EducationLevels:", allEducationLvls);
       setEducationLvls((prevState) => {
         let updatedEducationLvls = [...prevState];
         updatedEducationLvls = allEducationLvls;
@@ -72,7 +67,6 @@ function AddUserEducation(props) {
   const onGetAllSchoolsSuccess = (response) => {
     const allSchools = response.items;
     if (schools.length !== allSchools.length) {
-      _logger("These are all the Schools:", allSchools);
       setSchools((prevState) => {
         let updatedSchools = [...prevState];
         updatedSchools = allSchools;
@@ -80,19 +74,20 @@ function AddUserEducation(props) {
       });
     }
   };
+  
   const onAddWithDegreesSuccess = () => {
     toastr.success("Your Education Level Record has been created successfully");
     navigate("/dashboard/user/education/showlist");
   };
 
   const onGetAllLookUpTablesError = (error) => {
-    _logger("onGetAllLookUpTablesError:", error);
     toastr.error("ERROR: (404)=> LookUp Tables");
   };
+  
   const onGetAllSchoolsError = (error) => {
-    _logger("onGetAllSchoolsError:", error);
     toastr.error("ERROR: (404)=> Schools");
   };
+  
   const onAddWithDegreesError = () => {
     toastr.error("ERROR: Unable to create new record");
   };
@@ -104,6 +99,7 @@ function AddUserEducation(props) {
       </option>
     );
   };
+  
   const creatableSelectMapper = (degree) => {
     return { value: degree.name, label: degree.name };
   };
@@ -125,15 +121,11 @@ function AddUserEducation(props) {
       });
       values.degrees = degreesToSubmit;
 
-      _logger("From Formik Submit => MULTIPLE DEGREES INSERT:", values);
-
       userEducationService
         .addWithDegrees(values)
         .then(onAddWithDegreesSuccess)
         .catch(onAddWithDegreesError);
     } else {
-      _logger("From Formik Submit => STANDAR INSERT:", values);
-
       userEducationService
         .addRecord(values)
         .then(onAddWithDegreesSuccess)
