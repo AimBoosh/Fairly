@@ -1,17 +1,8 @@
-﻿USE [Fairly]
-GO
-/****** Object:  StoredProcedure [dbo].[RelatedPersonalValues_Insert]    Script Date: 6/8/2023 2:55:05 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+	CREATE PROC [dbo].[RelatedPersonalValues_Insert]
+						@PersonalValueA int
+						,@PersonalValueB int
 
-
-		CREATE PROC [dbo].[RelatedPersonalValues_Insert]
-								@PersonalValueA int
-								,@PersonalValueB int
-
-		AS
+	AS
 
 /*------------ TEST CODE ------------
 
@@ -19,20 +10,19 @@ GO
 				,@PersonalValueB int = 6
 				
 		EXECUTE [dbo].[RelatedPersonalValues_Insert]
-								@PersonalValueA 
-								,@PersonalValueB 
+						@PersonalValueA 
+						,@PersonalValueB 
 
 */
 
-		BEGIN
+	BEGIN
 
-				INSERT INTO [dbo].[RelatedPersonalValues]
-						   ([PersonalValueA]
-						   ,[PersonalValueB])
-					 VALUES
-						   (@PersonalValueA
-						   ,@PersonalValueB)
+	INSERT INTO [dbo].[RelatedPersonalValues]
+				   ([PersonalValueA]
+				   ,[PersonalValueB])
+	VALUES
+				   (@PersonalValueA
+				   ,@PersonalValueB)
 
 
-		END
-GO
+	END
