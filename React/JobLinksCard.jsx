@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from "react";
 import jobLinksService from "../../services/jobLinks";
 import { Card, Table } from "react-bootstrap";
-import debug from "debug";
 import Pagination from "rc-pagination";
 import "rc-pagination/assets/index.css";
 import locale from "rc-pagination/lib/locale/en_US";
 import JobLinksCard from "./JobLinksCard";
 import PropTypes from "prop-types";
-
-const _logger = debug.extend("JobLinks");
-
-_logger("test log");
 
 const JobLinks = ({ currentUser }) => {
   const [jobState, setJobState] = useState({
@@ -41,7 +36,6 @@ const JobLinks = ({ currentUser }) => {
   ]);
 
   const onGetJobLinkSuccess = (response) => {
-    _logger("onGetJobLinkSuccess", response);
     let jobLinkArray = response.item.pagedItems;
 
     setJobState((prevState) => ({
@@ -59,7 +53,7 @@ const JobLinks = ({ currentUser }) => {
   };
 
   const onGetJobLinkError = (error) => {
-    _logger(error.message);
+    console.log(error.message);
   };
 
   const mapJobLinks = (jobLink) => (
