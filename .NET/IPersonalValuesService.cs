@@ -1,14 +1,4 @@
-﻿using  Models.Domain;
-using  Models.Domain.PersonalValueRankings;
-using  Models.Domain.PersonalValues;
-using  Models.Requests.PersonalValueRankings;
-using  Models.Requests.PersonalValues;
-using System.Collections.Generic;
-using System.Data;
-
-namespace  Services.Interfaces
-{
-    public interface IPersonalValuesService
+public interface IPersonalValuesService
     {
         #region PersonalValueRankings
 
@@ -31,4 +21,3 @@ namespace  Services.Interfaces
 
         #endregion
     }
-}
