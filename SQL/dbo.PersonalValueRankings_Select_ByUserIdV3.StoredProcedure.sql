@@ -1,37 +1,29 @@
-﻿USE [Fairly]
-GO
-/****** Object:  StoredProcedure [dbo].[PersonalValueRankings_Select_ByUserIdV3]    Script Date: 7/10/2023 10:19:40 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-
-
-
-CREATE proc [dbo].[PersonalValueRankings_Select_ByUserIdV3]
-					@userId int
-as
+	CREATE proc [dbo].[PersonalValueRankings_Select_ByUserIdV3]
+							@userId INT
+	AS
 /*	------------------ TEST CODE -------------------
 	DECLARE @userId int = 208
 	EXECUTE dbo.PersonalValueRankings_Select_ByUserIdV3
-					@userId
+							@userId
 */
-BEGIN
+	BEGIN
 
-	SELECT	pv.[Id]
-			,pv.[Name]
-			,pvr.[Rank]
-			,pvr.[DateCreated]
-			,pvr.[DateModified]
-			,pvr.[Sort]
-	From dbo.Users as u inner join dbo.PersonalValueRankings as pvr
-		on u.Id = pvr.UserId
-		inner join dbo.PersonalValues as pv
-		on pv.Id = pvr.PersonalValueId
-	WHERE u.Id = @userId  
-	Order By pvr.[Rank]   
+	SELECT	PV.[Id]
+		,PV.[Name]
+		,PVR.[Rank]
+		,PVR.[DateCreated]
+		,PVR.[DateModified]
+		,PVR.[Sort]
+		
+	FROM dbo.Users AS U INNER JOIN dbo.PersonalValueRankings AS PVT
+		ON U.Id = PVR.UserId
+		INNER JOIN dbo.PersonalValues AS PV
+		ON PV.Id = PVR.PersonalValueId
+		
+	WHERE U.Id = @userId  
+	ORDER BY PVR.[Rank]   
 
-END
+	END
 
 
-GO
+
