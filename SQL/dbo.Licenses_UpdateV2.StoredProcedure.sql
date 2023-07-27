@@ -1,13 +1,4 @@
-﻿USE [Fairly]
-GO
-/****** Object:  StoredProcedure [dbo].[Licenses_UpdateV2]    Script Date: 6/30/2023 6:32:47 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-
-
-CREATE proc [dbo].[Licenses_UpdateV2]
+	CREATE proc [dbo].[Licenses_UpdateV2]
 			@LicenseStateId int
 			,@LicenseNumber nvarchar(50)
 			,@CreatedBy int
@@ -19,14 +10,14 @@ CREATE proc [dbo].[Licenses_UpdateV2]
 			,@Id int
 
 
-as
+	AS
 
 /*
 Select *
 From dbo.Licenses
 
 
-Declare		@LicenseStateId int = 3
+Declare			@LicenseStateId int = 3
 			,@LicenseNumber nvarchar(50) = 'V2testUpdate for Peer Review'
 			,@CreatedBy int = 3
 			,@DateVerified date
@@ -53,11 +44,11 @@ From dbo.Licenses
 
 */
 
-BEGIN
+	BEGIN
 
 
-UPDATE [dbo].[Licenses]
-SET			[LicenseStateId] = @LicenseStateId
+	UPDATE [dbo].[Licenses]
+	SET		[LicenseStateId] = @LicenseStateId
 			,[LicenseNumber] = @LicenseNumber
 			,[CreatedBy] = @CreatedBy
 			,[DateVerified] = COALESCE(@DateVerified, NULL)
@@ -67,8 +58,7 @@ SET			[LicenseStateId] = @LicenseStateId
 			,[FileId] = @FileId
 
 
-WHERE		[Id] = @Id
+	WHERE		[Id] = @Id
 
 
-END
-GO
+	END
