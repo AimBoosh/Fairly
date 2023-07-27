@@ -1,22 +1,3 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using  Models;
-using  Models.Domain.Forums;
-using  Models.Domain.Threads;
-using  Models.Requests.Forums;
-using  Models.Requests.Threads;
-using  Services;
-using  Services.Interfaces;
-using  Web.Controllers;
-using  Web.Models.Responses;
-using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-
-namespace  Web.Api.Controllers
-{
     [Route("api/forums")]
     [ApiController]
     public class ForumsApiController : BaseApiController
@@ -407,4 +388,3 @@ namespace  Web.Api.Controllers
         }
         #endregion
     }
-}
