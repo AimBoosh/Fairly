@@ -1,36 +1,24 @@
-﻿USE [Fairly]
-GO
-/****** Object:  StoredProcedure [dbo].[RelatedPersonalValues_Delete]    Script Date: 6/8/2023 2:55:05 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-
-
-CREATE PROC [dbo].[RelatedPersonalValues_Delete]
-										@PersonalValueA int
-										,@PersonalValueB int
-AS
+﻿	CREATE PROC [dbo].[RelatedPersonalValues_Delete]
+					@PersonalValueA int
+					,@PersonalValueB int
+	AS
 
 /*------------ TEST CODE ------------
 
 DECLARE @PersonalValueA int = 2
-		,@PersonalValueB int = 4
+	,@PersonalValueB int = 4
 
 EXECUTE [dbo].[RelatedPersonalValues_Delete]
-									@PersonalValueA 
-									,@PersonalValueB 
+					@PersonalValueA 
+					,@PersonalValueB 
 
 */
 
-BEGIN
+	BEGIN
 
-DELETE FROM [dbo].[RelatedPersonalValues]
+	DELETE FROM [dbo].[RelatedPersonalValues]
 
-      WHERE PersonalValueA = @PersonalValueA
-	  AND PersonalValueB = @PersonalValueB
+      	WHERE 	PersonalValueA = @PersonalValueA
+	AND 	PersonalValueB = @PersonalValueB
 
-END
-
-
-GO
+	END
