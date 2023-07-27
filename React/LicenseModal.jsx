@@ -3,9 +3,6 @@ import { Button, Modal } from "react-bootstrap";
 import * as licenseService from "../../services/licenseService";
 import Swal from "sweetalert2";
 import propTypes from "prop-types";
-import debug from "sabio-debug";
-
-const _logger = debug.extend("LicensesModal");
 
 const LicenseModal = ({
   onHide,
@@ -55,7 +52,6 @@ const LicenseModal = ({
   };
 
   const handleVerifyError = (error) => {
-    _logger("Error verifying license:", error);
     Swal.fire({
       title: "Error",
       text: "Failed to verify the license. Please try again.",
