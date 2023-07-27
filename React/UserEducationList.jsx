@@ -1,6 +1,5 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import debug from "debug";
 import {
   Container,
   Row,
@@ -14,7 +13,6 @@ import "rc-pagination/assets/index.css";
 import usersEducationService from "../../services/userEducationService";
 import Toastr from "toastr";
 
-const _cardLogger = debug.extend("EducationLevel");
 function UsersEducationList() {
   const [educationData, setEducationData] = useState({
     arrayOfRecords: [],
@@ -33,7 +31,6 @@ function UsersEducationList() {
 
   const onGetPagedSuccess = (response) => {
     const allRecords = response.item.pagedItems;
-    _cardLogger("SUCCESS: onGetPagedSuccess", allRecords);
 
     setEducationData((prevState) => {
       const newState = { ...prevState };
@@ -44,7 +41,7 @@ function UsersEducationList() {
     });
   };
   const onGetPagedError = (error) => {
-    _cardLogger("ERROR: onGetPagedError", error);
+    console.log("ERROR: onGetPagedError", error);
     Toastr.warning(
       "There's been a problem. Please, try again in a few minutes :)"
     );
@@ -107,7 +104,6 @@ function UsersEducationList() {
     );
   };
   const onPaginationChange = (page) => {
-    _cardLogger("Page number: ", page);
     setEducationData((prevState) => {
       const newData = { ...prevState };
       newData.pageIndex = page;
