@@ -5,21 +5,16 @@ import { Table } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { BsFillTrashFill } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
-import logger from "debug";
 import Swal from "sweetalert2";
 
 const ExternalLink = ({ externalLink, onDeleteClicked }) => {
   const { user } = externalLink;
   const navigate = useNavigate();
-  const _logger = logger.extend("ExternalLink");
-  _logger("props", externalLink);
-
   const onLocalDelete = () => {
     onDeleteClicked(externalLink);
   };
 
   const onEditRequest = () => {
-    _logger("go to users form", externalLink.id);
     const state = {
       type: "LINK_EDIT",
       payload: externalLink,
