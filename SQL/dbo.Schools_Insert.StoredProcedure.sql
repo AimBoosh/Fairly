@@ -1,21 +1,11 @@
-﻿USE [Fairly]
-GO
-/****** Object:  StoredProcedure [dbo].[Schools_Insert]    Script Date: 7/12/2023 1:53:28 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-
-
-CREATE PROC [dbo].[Schools_Insert]
+	CREATE PROC [dbo].[Schools_Insert]
 			@Name nvarchar(100)
 			,@LocationId int
 			,@LogoUrl nvarchar(100)
 			,@CreatedBy int
-
 			,@Id int OUTPUT
 
-AS
+	AS
 /*
 DECLARE 
 			@Name nvarchar(100) = 'Other'
@@ -33,19 +23,19 @@ EXECUTE [dbo].[Schools_Insert]
 			
 */
 
-BEGIN
+	BEGIN
 
 
-INSERT INTO [dbo].[Schools]
-           ([Name]
-           ,[LocationId]
-		   ,[LogoUrl]
-           ,[CreatedBy]
-           ,[ModifiedBy]
-		   )
+	INSERT INTO [dbo].[Schools]
+           		([Name]
+           		,[LocationId]
+		   	,[LogoUrl]
+           		,[CreatedBy]
+           		,[ModifiedBy]
+		  	)
 
-	   VALUES
-           (@Name
+	VALUES
+           		(@Name
 			,@LocationId
 			,@LogoUrl
 			,@CreatedBy
@@ -53,8 +43,5 @@ INSERT INTO [dbo].[Schools]
 			)
 
 
-	   SET @Id = SCOPE_IDENTITY()
-END
-
-
-GO
+	SET @Id = SCOPE_IDENTITY()
+	END
