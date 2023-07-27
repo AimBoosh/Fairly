@@ -1,42 +1,28 @@
-﻿USE [Fairly]
-GO
-/****** Object:  StoredProcedure [dbo].[RelatedPersonalValues_Select_ById]    Script Date: 6/9/2023 12:22:20 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-
-
-
-			CREATE PROC [dbo].[RelatedPersonalValues_Select_ById]
-											@Id int
+	CREATE PROC [dbo].[RelatedPersonalValues_Select_ById]
+							@Id int
 											
-
-			AS
+	AS
 
 /*------------ TEST CODE ------------
 
 DECLARE @Id int = 6
 
 EXECUTE [dbo].[RelatedPersonalValues_Select_ById]
-									@Id
+						@Id
 
 */
 
+	BEGIN
 
-			BEGIN
-
-						SELECT RPV.[PersonalValueA] AS IdA
-							  ,PVA.Name
-							  ,RPV.[PersonalValueB] AS IdB
-							  ,PVB.Name
-
-							 
-	  
-						  FROM [dbo].[RelatedPersonalValues] AS RPV
-						  INNER JOIN [dbo].PersonalValues AS PVA ON RPV.PersonalValueA = PVA.Id
-						  INNER JOIN [dbo].PersonalValues AS PVB ON RPV.PersonalValueB = PVB.Id
-
-						  WHERE RPV.PersonalValueA = @Id OR RPV.PersonalValueB = @Id
-			END
-GO
+	SELECT RPV.[PersonalValueA] AS IdA
+				  ,PVA.Name
+				  ,RPV.[PersonalValueB] AS IdB
+				  ,PVB.Name
+ 
+	FROM [dbo].[RelatedPersonalValues] AS RPV
+	INNER JOIN [dbo].PersonalValues AS PVA ON RPV.PersonalValueA = PVA.Id
+	INNER JOIN [dbo].PersonalValues AS PVB ON RPV.PersonalValueB = PVB.Id
+	
+	WHERE RPV.PersonalValueA = @Id OR RPV.PersonalValueB = @Id
+	
+	END
