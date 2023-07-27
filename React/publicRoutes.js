@@ -2,7 +2,6 @@ import { lazy } from "react";
 
 const Landing = lazy(() => import("../pages/landing/Landing"));
 const PageNotFound = lazy(() => import("../components/errors/Error404"));
-
 const SignUp = lazy(() => import("../components/users/SignUp"));
 const SignIn = lazy(() => import("../components/users/SignIn"));
 const FileUploadExample = lazy(() =>
@@ -44,7 +43,6 @@ const routes = [
     isAnonymous: true,
   },
 ];
-
 
 const errorRoutes = [
   {
